@@ -2,6 +2,7 @@ package com.dimidotdev.nobs.product.services;
 
 import java.util.Optional;
 
+import com.dimidotdev.nobs.exceptions.ProductNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +31,6 @@ public class UpdateProductService implements Command<UpdateProductCommand, Produ
             return ResponseEntity.ok(new ProductDTO(product));
         }
 
-        return null;
+        throw new ProductNotFoundException();
     }
 }

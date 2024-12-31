@@ -2,6 +2,7 @@ package com.dimidotdev.nobs.product.services;
 
 import java.util.Optional;
 
+import com.dimidotdev.nobs.exceptions.ProductNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +28,7 @@ public class GetProductService implements Query<Integer, ProductDTO> {
             return ResponseEntity.ok(new ProductDTO(productOptional.get()));
         }
 
-        return null;
+        throw new ProductNotFoundException();
     }
 
 }

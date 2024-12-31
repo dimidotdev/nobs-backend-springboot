@@ -2,6 +2,7 @@ package com.dimidotdev.nobs.product.services;
 
 import java.util.Optional;
 
+import com.dimidotdev.nobs.exceptions.ProductNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,6 @@ public class DeleteProductService implements Command<Integer, Void> {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         }
 
-        return null;
+        throw new ProductNotFoundException();
     }
 }
